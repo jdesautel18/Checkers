@@ -4,7 +4,7 @@ import sound
 
 class Board(SpriteNode):
 	def __init__(self):
-		SpriteNode.__init__(self, 'board.png')
+		SpriteNode.__init__(self, './Images/board.png')
 		self.checkers = []
 		self.valid_locations = [(144, 176), (336, 176), (528, 176), (720, 176),
 								(48, 272), (240, 272), (432, 272), (624, 272),
@@ -27,10 +27,10 @@ class Checker(SpriteNode):
 		def __init__(self, number, position):
 			self.king = False
 			if number < 12:
-				SpriteNode.__init__(self, 'red.png')
+				SpriteNode.__init__(self, './Images/red.png')
 				self.position = position
 			else:
-				SpriteNode.__init__(self, 'black.png')
+				SpriteNode.__init__(self, './Images/black.png')
 				self.position = position
 
 
@@ -56,10 +56,10 @@ class Game(Scene):
 			self.board.checkers[self.selected].run_action(move_action)
 			if self.turn == 0:
 				self.turn = 1
-				sound.play_effect('croissant.mp3')
+				sound.play_effect('./Sounds/croissant.mp3')
 			else:
 				self.turn = 0
-				sound.play_effect('carl.mp3')
+				sound.play_effect('./Sounds/carl.mp3')
 		print(x,y)
 
 run(Game(), PORTRAIT)
